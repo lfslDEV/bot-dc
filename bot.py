@@ -156,10 +156,7 @@ async def on_message(message: discord.Message):
         try:
             # Adiciona 1 para incluir a mensagem do comando !clear na contagem
             deleted_messages = await message.channel.purge(limit=amount_to_delete + 1)
-            # Envia confirmação temporária
-            confirmation_msg = await message.channel.send(f"{len(deleted_messages) - 1} mensagens foram apagadas por {message.author.mention}.", delete_after=5)
-            print(f"{message.author.name} limpou {len(deleted_messages) - 1} mensagens no canal '{message.channel.name}'.")
-
+            
         except discord.Forbidden:
             # Erro se o BOT não tem permissão
             print(f"Erro de Permissão (on_message - clear): **O BOT** não tem permissão 'Gerenciar Mensagens' no canal '{message.channel.name}' ({message.channel.id}).")
