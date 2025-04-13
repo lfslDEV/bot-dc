@@ -70,7 +70,7 @@ class CloseChannelView(View):
         super().__init__(timeout=timeout)
         self.author_id = author_id # Armazena o ID do usuário que iniciou
 
-    @discord.ui.button(label="Concluir e Fechar Canal", style=discord.ButtonStyle.danger, custom_id="close_telagem_channel")
+    @discord.ui.button(label="Fechar Canal", style=discord.ButtonStyle.danger, custom_id="close_telagem_channel")
     async def close_button(self, interaction: discord.Interaction, button: Button):
         channel_to_delete = interaction.channel
         user_who_clicked = interaction.user
@@ -229,7 +229,7 @@ async def on_message(message: discord.Message):
             # 6. Envia a mensagem final com o botão de fechar
             view = CloseChannelView(author_id=member.id)
             await new_channel.send(
-                f"Guia de telagem concluído. Quando terminar sua análise, clique no botão abaixo para **fechar este canal**.",
+                f"Guia concluído. Assim que terminar a SS, clique no botão abaixo para **fechar o canal**.",
                 view=view
             )
             print(f"Guia de telagem e botão de fechar enviados para {member.name} no canal {new_channel.name}.")
@@ -256,7 +256,7 @@ async def on_message(message: discord.Message):
             except discord.Forbidden: pass
 
 
-    # --- Lógica do Comando !clear --- (Sem alterações nesta seção)
+    # --- Lógica do Comando !clear
     elif message.content.lower().startswith(COMANDO_CLEAR):
         print(f"Comando '{COMANDO_CLEAR}' detectado de {message.author.name} no canal '{message.channel.name}'")
 
@@ -295,7 +295,7 @@ async def on_message(message: discord.Message):
             await message.channel.send(f"Ocorreu um erro ao processar seu comando.", delete_after=10)
             return
 
-        # 3. Deletar as mensagens (incluindo o comando !clear)
+        # 3. Deletar as mensagens
         try:
             deleted_messages = await message.channel.purge(limit=amount_to_delete + 1)
             # Opcional: enviar confirmação que some rápido
@@ -326,12 +326,4 @@ else:
     except discord.PrivilegedIntentsRequired as e:
         print(f"Erro Crítico: Intents privilegiadas não estão habilitadas ({e}). Verifique Portal Dev (Members e Message Content ATIVAS).")
     except ImportError as e:
-         # <<< NOVO >>> Tratamento específico se discord.py não estiver instalado
-         if 'discord' in str(e).lower():
-              print(f"Erro Crítico: Biblioteca discord.py não encontrada. Instale-a com: pip install -U discord.py")
-         elif 'dotenv' in str(e).lower():
-              print(f"Erro Crítico: Biblioteca python-dotenv não encontrada. Instale-a com: pip install -U python-dotenv")
-         else:
-              print(f"Erro de Importação: {e}")
-    except Exception as e:
-        print(f"Ocorreu um erro fatal ao tentar iniciar ou rodar o bot: {e}")
+        print(f"Erro Crítico: Falha ao importar módulo necessário: {e}")
