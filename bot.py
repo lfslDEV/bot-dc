@@ -20,16 +20,38 @@ ID_CARGO_MODERADOR_STR = os.getenv('ID_CARGO_MODERADOR', None)
 
 # --- Lista de Passos da Telagem (Personalize!) ---
 PASSOS_TELAGEM = [
-    "Verifique os processos em execução no Gerenciador de Tarefas (Ctrl+Shift+Esc). Procure por nomes suspeitos ou uso excessivo de recursos.",
-    "Analise o histórico de execução de programas (Prefetch). Vá em C:\\Windows\\Prefetch e ordene por data.",
-    "Verifique pastas comuns de cheats: %appdata%, %localappdata%, Documentos. Procure por pastas/arquivos com nomes suspeitos.",
-    "Use ferramentas como Process Hacker ou System Informer para uma análise mais profunda dos processos (verifique strings, módulos carregados).",
-    "Verifique o histórico do navegador e downloads em busca de sites ou arquivos relacionados a cheats.",
-    "Examine a lixeira em busca de arquivos suspeitos deletados recentemente.",
-    "Utilize strings específicas conhecidas de cheats em ferramentas de busca de arquivos (ex: Everything) ou no próprio Process Hacker.",
-    "Analise logs específicos de jogos ou launchers, se aplicável.",
-    "Verifique configurações de sobreposição (overlay) de programas como Discord, MSI Afterburner, etc.",
-    "Finalize a verificação e aplique seu veredito.",
+    # Passo 1: Gerenciador de Tarefas
+    "🔍 **Gerenciador de Tarefas** (`Ctrl+Shift+Esc`):\n   Verifique os *processos em execução*. Procure por nomes suspeitos ou uso excessivo de CPU/Memória/Disco.",
+
+    # Passo 2: Prefetch
+    "⏱️ **Histórico de Execução (Prefetch)**:\n   Acesse `C:\\Windows\\Prefetch`. Ordene por 'Data de modificação' para ver programas executados recentemente. Analise nomes suspeitos.",
+
+    # Passo 3: Pastas Comuns
+    "📁 **Pastas Comuns para Cheats**:\n   Verifique cuidadosamente: `%appdata%`, `%localappdata%`, `Documentos`. Procure por pastas/arquivos com nomes sugestivos.",
+
+    # Passo 4: Análise Avançada de Processos
+    "🛠️ **Análise Avançada (Process Hacker / System Informer)**:\n   Use uma dessas ferramentas para inspecionar *processos a fundo*. Verifique módulos carregados, strings internas e conexões de rede suspeitas.",
+
+    # Passo 5: Navegador e Downloads
+    "🌐 **Histórico do Navegador e Downloads**:\n   Cheque o *histórico de navegação* e a pasta de *downloads*. Procure por sites ou arquivos relacionados a cheats/mods.",
+
+    # Passo 6: Lixeira
+    "🗑️ **Lixeira**:\n   Examine a lixeira. Arquivos suspeitos podem ter sido deletados recentemente.",
+
+    # Passo 7: Busca por Strings
+    "💬 **Busca por Strings Conhecidas**:\n   Utilize ferramentas de busca (como **Everything**) ou o próprio **Process Hacker/System Informer** para procurar *textos específicos* (strings) conhecidos de cheats nos arquivos ou na memória dos processos.",
+
+    # Passo 8: Logs de Jogos/Launchers
+    "📜 **Logs Específicos (se aplicável)**:\n   Analise logs do *jogo* ou de *launchers* (Steam, EA App, etc.) que possam conter informações relevantes sobre modificações ou erros.",
+
+    # Passo 9: Overlays (Sobreposições)
+    "⚙️ **Overlays / Sobreposições**:\n   Verifique as configurações de overlay de aplicativos como Discord, MSI Afterburner, GeForce Experience, Xbox Game Bar, etc. Veja se há algo incomum ativo.",
+
+    # Separador
+    "---", # Um separador simples antes da conclusão
+
+    # Passo 10: Conclusão
+    "✅ **Conclusão da Análise**:\n   Revise todas as evidências encontradas. Finalize a verificação e comunique seu veredito de forma clara."
 ]
 
 # --- Validação do ID do Cargo Padrão ---
