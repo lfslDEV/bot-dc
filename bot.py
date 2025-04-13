@@ -22,34 +22,31 @@ ID_CARGO_MODERADOR_STR = os.getenv('ID_CARGO_MODERADOR', None)
 PASSOS_TELAGEM = [
     # Passo 1: Gerenciador de Tarefas
     "🔍 **Gerenciador de Tarefas** (`Ctrl+Shift+Esc`):\n   Verifique os *processos em execução*. Procure por nomes suspeitos ou uso excessivo de CPU/Memória/Disco.",
-
+    "\n" 
     # Passo 2: Prefetch
     "⏱️ **Histórico de Execução (Prefetch)**:\n   Acesse `C:\\Windows\\Prefetch`. Ordene por 'Data de modificação' para ver programas executados recentemente. Analise nomes suspeitos.",
-
+    "\n"
     # Passo 3: Pastas Comuns
     "📁 **Pastas Comuns para Cheats**:\n   Verifique cuidadosamente: `%appdata%`, `%localappdata%`, `Documentos`. Procure por pastas/arquivos com nomes sugestivos.",
-
+    "\n"
     # Passo 4: Análise Avançada de Processos
     "🛠️ **Análise Avançada (Process Hacker / System Informer)**:\n   Use uma dessas ferramentas para inspecionar *processos a fundo*. Verifique módulos carregados, strings internas e conexões de rede suspeitas.",
-
+    "\n"
     # Passo 5: Navegador e Downloads
     "🌐 **Histórico do Navegador e Downloads**:\n   Cheque o *histórico de navegação* e a pasta de *downloads*. Procure por sites ou arquivos relacionados a cheats/mods.",
-
+    "\n"
     # Passo 6: Lixeira
     "🗑️ **Lixeira**:\n   Examine a lixeira. Arquivos suspeitos podem ter sido deletados recentemente.",
-
+    "\n"
     # Passo 7: Busca por Strings
     "💬 **Busca por Strings Conhecidas**:\n   Utilize ferramentas de busca (como **Everything**) ou o próprio **Process Hacker/System Informer** para procurar *textos específicos* (strings) conhecidos de cheats nos arquivos ou na memória dos processos.",
-
+    "\n"
     # Passo 8: Logs de Jogos/Launchers
     "📜 **Logs Específicos (se aplicável)**:\n   Analise logs do *jogo* ou de *launchers* (Steam, EA App, etc.) que possam conter informações relevantes sobre modificações ou erros.",
-
+    "\n"
     # Passo 9: Overlays (Sobreposições)
     "⚙️ **Overlays / Sobreposições**:\n   Verifique as configurações de overlay de aplicativos como Discord, MSI Afterburner, GeForce Experience, Xbox Game Bar, etc. Veja se há algo incomum ativo.",
-
-    # Separador
-    "---", # Um separador simples antes da conclusão
-
+    "\n"
     # Passo 10: Conclusão
     "✅ **Conclusão da Análise**:\n   Revise todas as evidências encontradas. Finalize a verificação e comunique seu veredito de forma clara."
 ]
@@ -248,7 +245,7 @@ async def on_message(message: discord.Message):
                 f"Guia concluído. Assim que terminar a SS, clique no botão abaixo para **fechar o canal**.",
                 view=view
             )
-            print(f"Guia de telagem e botão de fechar enviados para {member.name} no canal {new_channel.name}.")
+            print(f"\nGuia de telagem e botão de fechar enviados para {member.name} no canal {new_channel.name}.")
 
         except discord.Forbidden as e:
             print(f"Erro Crítico de Permissão (on_message - telagem): **O BOT** não tem permissão para 'Criar Canais' ou configurar permissões.")
