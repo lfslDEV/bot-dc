@@ -29,7 +29,7 @@ PASSOS_TELAGEM = [
     "Utilize strings específicas conhecidas de cheats em ferramentas de busca de arquivos (ex: Everything) ou no próprio Process Hacker.",
     "Analise logs específicos de jogos ou launchers, se aplicável.",
     "Verifique configurações de sobreposição (overlay) de programas como Discord, MSI Afterburner, etc.",
-    "Finalize a verificação e tome sua decisão.",
+    "Finalize a verificação e aplique seu veredito.",
 ]
 
 # --- Validação do ID do Cargo Padrão ---
@@ -44,7 +44,6 @@ else:
     print("Erro Crítico: A chave 'ID_DO_CARGO_PARA_ADICIONAR' não foi encontrada no .env.")
     exit()
 
-# --- <<< NOVO >>> Validação do ID do Cargo Moderador (Opcional) ---
 ID_CARGO_MODERADOR = None
 if ID_CARGO_MODERADOR_STR:
     try:
@@ -64,7 +63,6 @@ intents.message_content = True  # Necessária para ler comandos (!telagem, !clea
 # --- Inicialização do Bot ---
 bot = discord.Client(intents=intents)
 
-# --- <<< NOVO >>> Classe para o Botão de Fechar Canal ---
 class CloseChannelView(View):
     def __init__(self, author_id: int, timeout=3600*6): # <<< MODIFICADO >>> Adicionado timeout de 6 horas por padrão
         super().__init__(timeout=timeout)
@@ -97,10 +95,6 @@ class CloseChannelView(View):
             print(f"Tentando deletar canal {channel_to_delete.name} a pedido de {user_who_clicked.name}...")
             await channel_to_delete.delete(reason=f"Telagem concluída e canal fechado por {user_who_clicked.name}")
             print(f"Canal de telagem {channel_to_delete.name} fechado com sucesso.")
-            # Opcional: Log em canal específico ou DM para o usuário
-            # try:
-            #    await user_who_clicked.send(f"O canal de telagem `#{channel_to_delete.name}` foi fechado.")
-            # except discord.Forbidden: pass
         except discord.NotFound:
              print(f"Erro: Canal {channel_to_delete.name} já foi deletado ou não encontrado ao tentar fechar.")
              # Não precisa enviar mensagem ao usuário, o canal já sumiu.
